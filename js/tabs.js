@@ -12,6 +12,10 @@ const changeContent = (array, value) => {
     })
 }
 
+const setPageTitle = (title) => {
+    document.title = title;
+}
+
 tabButtons.forEach((tabButton) => {
     tabButton.addEventListener('click', (event) => {
         const data = event.target.dataset.tabsHandler;
@@ -22,6 +26,8 @@ tabButtons.forEach((tabButton) => {
                 btn.classList.remove('design-list__item_active')
             }
         })
+        console.dir(tabButton);
+        setPageTitle(tabButton.textContent);
         changeContent(tabDescriptions, data)
         changeContent(tabImages, data)
     })
