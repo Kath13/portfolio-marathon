@@ -1,27 +1,17 @@
-let mainDirectById = document.getElementById('main')
-let mainById = document.querySelector('#main')
-let mainByClass = document.querySelector('.main')
-let mainByTag = document.querySelector('section')
+let tabButtons = document.querySelectorAll('.design-list__item');
 
-let sectionsByTag = document.querySelectorAll('section')
+tabButtons.forEach((tabButton, index) => {
+    // так можно навесить только одну функцию
+    // tabButton.onclick = () => {
+    //     console.log('click')
+    // }
 
-console.log('### getElementById', mainDirectById)
-console.log('### querySelector by id', mainById)
-console.log('### querySelector by class', mainByClass)
-console.log('### querySelector by tag', mainByTag)
-
-console.log('### querySelectorAll by tag', sectionsByTag)
-console.log('### first querySelectorAll by tag', sectionsByTag[0])
-
-for (let i = 0; i < sectionsByTag.length; i++) {
-    console.log(sectionsByTag[i])
-}
-
-console.dir(sectionsByTag)
-
-// Array iteration
-sectionsByTag.forEach((element, index, array) => {
-    console.log('### element:', element)
-    console.log('### index:', index)
-    console.log('### array:', array)
+    // так можно навесить несколько функций
+    tabButton.addEventListener('click', (e) => {
+        console.log('click1')
+    })
+    tabButton.addEventListener('click', (e) => {
+        console.log('click2')
+    })
+    console.dir(tabButton)
 })
