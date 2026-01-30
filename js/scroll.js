@@ -5,9 +5,14 @@ scrollMenuLinks.forEach((link) => {
         const id = link.getAttribute('href').substring(1);
         const target = document.getElementById(id);
         if (target) {
-            target.scrollIntoView({
-                block: 'start',
-                behavior: 'smooth'
+            // target.scrollIntoView({
+            //     block: 'start',
+            //     behavior: 'smooth'
+            // });
+            seamless.scrollIntoView(target, {
+                behavior: "smooth",
+                block: "center",
+                inline: "center",
             });
         }
     })
