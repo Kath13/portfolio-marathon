@@ -14,10 +14,11 @@ const getRemaining = (deadline) => {
         clearInterval(updateRemainingInterval)
         return '00:00:00'
     }
-    const hoursRemaining = Math.floor(totalSecondsRemaining / 60 / 60);
-    const minutesRemaining = Math.floor(totalSecondsRemaining / 60) - hoursRemaining * 60;
-    const secondsRemaining = totalSecondsRemaining - hoursRemaining * 60 * 60 - minutesRemaining * 60;
-    return `${addZero(hoursRemaining)}:${addZero(minutesRemaining)}:${addZero(secondsRemaining)}`
+    const daysRemaining = Math.floor(totalSecondsRemaining / 60 / 60 / 24);
+    const hoursRemaining = Math.floor((totalSecondsRemaining / 60 / 60) % 24);
+    const minutesRemaining = Math.floor((totalSecondsRemaining / 60) % 60);
+    const secondsRemaining = totalSecondsRemaining % 60;
+    return `${addZero(daysRemaining)}:${addZero(hoursRemaining)}:${addZero(minutesRemaining)}:${addZero(secondsRemaining)}`
 }
 
 const updateClock = () => timerBlock.textContent = getRemaining(deadline);
