@@ -1,6 +1,7 @@
 const scrollMenuLinks = document.querySelectorAll('.menu-list__link');
 const mainButton = document.querySelector('.main__button');
-[...scrollMenuLinks, mainButton].forEach((link) => {
+const scrollButton = document.querySelector('.main__scroll');
+[...scrollMenuLinks, mainButton, scrollButton].forEach((link) => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const id = link.getAttribute('href').substring(1);
